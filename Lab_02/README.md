@@ -9,7 +9,7 @@ Bài lab số 2 của tuần này là:
   + workflow sẽ kiểm tra xem file session2.zip có thay đổi hay không, nếu thay đổi thì chạy lại file script trong lab1 và push lại kết quả về github.
 ```
 ## Report đề bài
-- Đầu tiên, với IDE là Visual Studio Code. Ta có thể tìm cái extension là GitHub Workflow để host repositories một cách hiệu quả.
+- Đầu tiên, với IDE là Visual Studio Code. Ta có thể tìm cái extension là GitHub Actions để host repositories một cách hiệu quả.
 
 ![image](https://github.com/user-attachments/assets/2250e8df-022d-43b6-a015-491515d1a214)
 - Tiếp theo ta hãy tạo folder cho workflow trên repository, kèm theo một file YAML để catchy workflow của script nhé.
