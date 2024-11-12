@@ -4,10 +4,17 @@ import re
 from PyPDF2 import PdfReader  # Phải chắc chắn là PyPDF2 được cài đặt (pip install PyPDF2)
 
 # Step 1: Giải nén tệp session2.zip vào thư mục 'extracted_pdfs'
-zip_file_path = 'session2.zip'
+zip_file_path = os.path.join(os.path.dirname(__file__), 'session2.zip')
 extract_folder_path = 'extracted_pdfs'
 
-# Trích xuất file ZIP 
+# Đảm bảo file tồn tại
+if not os.path.isfile(zip_file_path):
+    print(f"Error: File '{zip_file_path}' not found.")
+else:
+    print(f"Found file at '{zip_file_path}'")
+    # Tiếp tục xử lý file
+
+# Trích xuất file ZIP ở file
 with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
     zip_ref.extractall(extract_folder_path)
 print(f"Extracted files to '{extract_folder_path}'")
