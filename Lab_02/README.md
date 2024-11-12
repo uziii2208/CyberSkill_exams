@@ -12,14 +12,14 @@ Bài lab số 2 của tuần này là:
 - Đầu tiên, với IDE là Visual Studio Code. Ta có thể tìm cái extension là GitHub Actions để host repositories một cách hiệu quả.
 
 ![image](https://github.com/user-attachments/assets/2250e8df-022d-43b6-a015-491515d1a214)
-- Tiếp theo ta hãy tạo folder cho workflow trên repository, kèm theo một file YAML để catchy workflow của script nhé.
+- Tiếp theo ta hãy tạo folder cho workflow trên repository, kèm theo một file YAML để catch up workflow của script nhé.
 
 ![image](https://github.com/user-attachments/assets/0d60c04e-a717-4793-b92b-cddb2b10e5b2)
 - Tiếp đến là ta commit file workflow lên GitHub, dùng GitLens để visualize quá trình.
 
 ![image](https://github.com/user-attachments/assets/45ab1e88-30c5-4347-ba55-9d0a6221ce6d)
 ![image](https://github.com/user-attachments/assets/4cc4b195-2c63-4935-94d8-1c50e105b7dc)
-- Sau đấy tôi sẽ giả dụ thêm vào một dùng note trong file script.py để xem thử việc thay đổi note có catchy với GitHub Action không.
+- Sau đấy tôi sẽ giả dụ thêm vào một dùng note trong file script.py để xem thử việc thay đổi note có catch up với GitHub Action không.
 
 ![image](https://github.com/user-attachments/assets/770402af-7681-434a-90a2-c39d6432a1f9)
 ![image](https://github.com/user-attachments/assets/5f67bb29-0248-415f-a9d8-3fff09e807ea)
