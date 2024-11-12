@@ -2,7 +2,7 @@
 
 # Lab01 | CyberSkill 
 
-<p style="background-color:yellow; padding: 5px; border-radius: 5px;">
+```
 You are provided with a compressed file named session2.zip. Inside, you will find five PDF files. Your task is to write a script that performs the following steps:
 
 Decompress the session2.zip file to extract the five PDF files.
@@ -13,7 +13,7 @@ Within this folder, create individual text files for each unique English word fo
 Then push your result (script, folders, and files) to your GitHub repository.
 The name of each text file should be the word itself, and the file's content should be the same as its filename (i.e., the word).
 For example, if a PDF file contains the words "apple," "banana," and "apple" (repeated), create a folder named after the PDF. Inside this folder, create two text files named apple.txt and banana.txt. The content of apple.txt should be "apple," and the content of banana.txt should be "banana."
-</p>
+```
 
 ## Thời điểm hoàn thành
 - Time : 07:43:00 
