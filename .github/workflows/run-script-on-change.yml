@@ -1,0 +1,45 @@
+name: Run Script on session2.zip Change
+
+on:
+  push:
+    paths:
+      - "Lab_01/session2.zip"  # Trigger nếu session2.zip thay đổi
+      - "Lab_01/script.py"     # Trigger nếu script.py thay đổi
+
+jobs:
+  check-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Bước 1: Checkout code từ repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Bước 2: Kiểm tra xem file session2.zip có thay đổi hay không và đặt output
+    - name: Check for session2.zip changes
+      id: check_session2_zip
+      run: |
+        if git diff --name-only HEAD^ HEAD | grep -q 'Lab_01/session2.zip'; then
+          echo "::set-output name=ZIP_CHANGED::true"
+        else
+          echo "::set-output name=ZIP_CHANGED::false"
+        fi
+
+    # Bước 3: Chạy script nếu file session2.zip đã thay đổi
+    - name: Run script if session2.zip changed
+      if: ${{ steps.check_session2_zip.outputs.ZIP_CHANGED == 'true' }}
+      run: |
+        python3 Lab_01/script.py  # Chạy script từ thư mục repo
+        echo "Script executed successfully."
+
+    # Bước 4: Commit và push kết quả trở lại GitHub nếu có thay đổi
+    - name: Commit and push changes
+      if: ${{ steps.check_session2_zip.outputs.ZIP_CHANGED == 'true' }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Automated update from GitHub Action: script run due to session2.zip change"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Đảm bảo có quyền push từ GitHub Actions
