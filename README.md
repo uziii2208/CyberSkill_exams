@@ -8,8 +8,8 @@
 
 <h2 align="center">Xem nội dung và các thành quả của mình trong quá trình thực tập tại đây nhé :</h2>
 
-- Lab01
-- Lab02
+- [Lab01](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_01)
+- [Lab02](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_02)
 - Lab03
 - Lab04
 - Lab05
