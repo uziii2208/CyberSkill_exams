@@ -14,7 +14,7 @@ else:
     print(f"Found file at '{zip_file_path}'")
     # Tiếp tục xử lý file
 
-# Trích xuất file ZIP 
+# Trích xuất file ZIP ở file
 with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
     zip_ref.extractall(extract_folder_path)
 print(f"Extracted files to '{extract_folder_path}'")
