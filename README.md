@@ -17,7 +17,7 @@ For example, if a PDF file contains the words "apple," "banana," and "apple" (re
 
 ## Thời điểm hoàn thành
 - Time : 07:43:00 
-- Date : 11/12/2024
+- Date : 12/11/2024
 
 <br>
 
