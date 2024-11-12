@@ -25,5 +25,7 @@ For example, if a PDF file contains the words "apple," "banana," and "apple" (re
 
 ## Về vấn đề khác...
 
-### Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!
+<div align="center">
+<h3 align="center">Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!!</h3>
+<div>
 
