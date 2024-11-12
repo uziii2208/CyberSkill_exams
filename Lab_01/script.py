@@ -71,6 +71,6 @@ else:
 #Mọi yêu cầu của lab đều được automation qua file script này.
 #Quá trình debug diễn ra lâu nhanh sẽ tùy vào kích thước file, cám ơn đã review code ạ !
 
-#Tôi vừa cập nhật thêm cho file script và bạn vui lòng mở action lên để check nhé
+#Tôi vừa cập nhật thêm cho file script và bạn vui lòng mở action lên để check nhé. Cám ơn nhiều!!!
 
 #=======================================================================================#
