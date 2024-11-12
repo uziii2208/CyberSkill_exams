@@ -19,8 +19,8 @@
 
 
 ## Thông tin 
- - GitHub cá nhân : [Follow link](https://github.com/cyberskill-world)
- - Organization : [Follow link](https://github.com/uziii2208)
+ - Organization : [Follow link](https://github.com/cyberskill-world)
+ - GitHub cá nhân : [Follow link](https://github.com/uziii2208)
 
 ## Về vấn đề khác...
 
