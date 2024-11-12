@@ -29,3 +29,12 @@ For example, if a PDF file contains the words "apple," "banana," and "apple" (re
 <h3 align="center">Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!!</h3>
 <div>
 
+<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
+</div>
+</div>
+<div align="center">
+<h3 align="center">Happy Learning / Working !!!</h3>
+<div>
+<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
+</div>
+</div>
