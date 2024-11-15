@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # Chạy khi có merge vào nhánh main hoặc nhánh mà bạn muốn
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Sử dụng runner Ubuntu từ GitHub
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Lấy mã nguồn từ repository
+
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.VM_SSH_KEY }}" > ~/.ssh/id_rsa  # Đọc khóa SSH từ GitHub Secrets
+        chmod 600 ~/.ssh/id_rsa  # Đảm bảo quyền truy cập cho khóa SSH
+
+    - name: Add EC2 host to known hosts
+      run: |
+        ssh-keyscan -H 54.179.152.34 >> ~/.ssh/known_hosts  # Thêm EC2 IP vào known_hosts
+
+    - name: Deploy index.html to EC2
+      run: |
+        scp -i ~/.ssh/id_rsa index.html ubuntu@54.179.152.34:/var/www/html/  # Sao chép index.html lên EC2
+
+    - name: Restart web server (Nginx)
+      run: |
+        ssh -i ~/.ssh/id_rsa ubuntu@54.179.152.34 "sudo systemctl restart nginx"  # Khởi động lại Nginx

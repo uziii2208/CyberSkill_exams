@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSkill - Lab03</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+        /* Đặt nền với link hình ảnh */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://cdn.pixabay.com/photo/2017/09/13/17/07/aqua-abstract-2746219_1280.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Lớp phủ nền để làm mờ */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        /* Nội dung chính */
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            margin-bottom: 80px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            padding: 10px 0;
+        }
+
+        /* Hiệu ứng Dark Matter cho chữ */
+        .dark-matter-text {
+            font-size: 4rem;
+            font-weight: bold;
+            position: relative;
+            color: transparent;
+            background: linear-gradient(90deg, #5500ff, #ff00aa, #5500ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: darkMatterAnimation 3s infinite linear;
+            text-shadow: 0px 0px 10px rgba(85, 0, 255, 0.7), 0px 0px 20px rgba(255, 0, 170, 0.7);
+            margin: 0;
+        }
+        
+        .light-matter-text {
+    font-size: 1rem; /* Hoặc dùng 'inherit' hoặc 'initial' để trở về mặc định */
+    font-weight: bold;
+    position: relative;
+    color: transparent;
+    background: linear-gradient(90deg, #ffee00, #0084ff, #5500ff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: darkMatterAnimation 3s infinite linear;
+    text-shadow: 0px 0px 10px rgba(85, 0, 255, 0.7), 0px 0px 20px rgba(200, 255, 0, 0.7);
+    margin: 0;
+}
+
+        @keyframes darkMatterAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            margin-top: 80px;
+            border-top: 1px solid white;
+            padding-top: 10px;
+        }
+
+        /* Mũi tên */
+        .arrow {
+            font-size: 2rem;
+            transform: rotate(45deg);
+            position: absolute;
+            bottom: 20%;
+            right: 15%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay để làm mờ nền nếu cần -->
+    <div class="overlay"></div>
+
+    <!-- Nội dung chính -->
+    <div class="container">
+        <div class="header">
+            <span>CyberSkill – Lab03</span>
+            <span>Live Server</span>
+        </div>
+
+        <!-- Hiệu ứng Dark Matter cho chữ "SUCCESSFULLY !!!" -->
+        <h1 class="dark-matter-text">SUCCESSFULLY !!!</h1>
+
+        <div class="arrow">➔</div>
+
+        <div class="footer">
+            <span>NOVEMBER 2024</span>
+            <span class="light-matter-text">
+                <a href="https://www.uziw3b.site" style="text-decoration: none; color: inherit;" target="_blank">www.uziw3b.site</a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>
