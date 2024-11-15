@@ -1,31 +1,31 @@
 ![image](https://github.com/user-attachments/assets/c323ce84-8d14-4ba6-b14a-4c4f1084af34)
-# Lab 02 | CyberSkill
+# Lab 03 | CyberSkill
 ## Yêu cầu thực hiện 
 ```
-Bài lab số 2 của tuần này là:
-- Tìm hiểu githubAction
-- viết 1 github action workflow cùng với repo của lab 1 session 2 thoã mãn các yêu cầu sau:
-  + workflow được trigger mỗi lần code mới được push lên.
-  + workflow sẽ kiểm tra xem file session2.zip có thay đổi hay không, nếu thay đổi thì chạy lại file script trong lab1 và push lại kết quả về github.
+Nội dung lab tuần này như sau:
+1. Tạo 1 web page html (index.html) push lên github repo
+2. Tạo 1 máy ảo cài sẵn linux ở cloud( any: aws, azure, gg, heroku,... hoặc hosting provider Việt Nam đều được)
+3. Trên máy ảo, cài web server bất kỳ (apache/nginx,....)
+4. Dùng web server listen trên port 80, nếu người dùng truy cập vào port 80 thì trả về nội dung của file index.html
+5. Viết github action workflow, được trigger trên merge event. Nếu index.html thay đổi cập nhật lại file index.html trên máy ảo giống với trên repo.
 ```
 ## Report đề bài
-- Đầu tiên, với IDE là Visual Studio Code. Ta có thể tìm cái extension là GitHub Actions để host repositories một cách hiệu quả.
+- Đầu tiên, về web page html mình đã cấu hình xong, push lên github thành công
 
-![image](https://github.com/user-attachments/assets/2250e8df-022d-43b6-a015-491515d1a214)
-- Tiếp theo ta hãy tạo folder cho workflow trên repository, kèm theo một file YAML để catch up workflow của script nhé.
+![image](https://github.com/user-attachments/assets/02aa5a82-bca7-4f82-b654-1812062f58c4)
 
-![image](https://github.com/user-attachments/assets/0d60c04e-a717-4793-b92b-cddb2b10e5b2)
-- Tiếp đến là ta commit file workflow lên GitHub, dùng GitLens để visualize quá trình.
+- Tiếp theo, mình sẽ dùng hosting bằng máy ảo Linux của EC2 Ubuntu Server (AWS). Đã cấu hình thành công
 
-![image](https://github.com/user-attachments/assets/45ab1e88-30c5-4347-ba55-9d0a6221ce6d)
-![image](https://github.com/user-attachments/assets/4cc4b195-2c63-4935-94d8-1c50e105b7dc)
-- Sau đấy tôi sẽ giả dụ thêm vào một dùng note trong file script.py để xem thử việc thay đổi note có catch up với GitHub Action không.
+![image](https://github.com/user-attachments/assets/907da2c1-ab43-4c62-9bf1-f2260fdc96a2)
 
-![image](https://github.com/user-attachments/assets/770402af-7681-434a-90a2-c39d6432a1f9)
-![image](https://github.com/user-attachments/assets/5f67bb29-0248-415f-a9d8-3fff09e807ea)
-- Sau cùng tôi sẽ lên GitHub vào Repository - Action - All workflows để xem thử kết quả trả về nhé.
+- Tiếp đến tôi sẽ cài 1 web server cho hosting (ở đây tôi sẽ dùng Nginx nhé). Sau đó tôi publish được hosting lên với domain www.uziw3b.site thành công
+- Người dùng truy cập vào port 80 thì trả về nội dung của file index.html
+![image](https://github.com/user-attachments/assets/f73c01e0-d726-4ca5-b99b-02a70af99c02)
 
-![image](https://github.com/user-attachments/assets/fdccb4bc-775a-4365-841e-f31fdfe1466c)
+- Viết github action workflow, được trigger trên merge event.
+![image](https://github.com/user-attachments/assets/3814d89d-8a8b-40da-b0d4-6c072235e324)
+
+![image](https://github.com/user-attachments/assets/12a7430b-224e-46df-9cfc-f8c509f5ad27)
 
 
 ## Thông tin 
