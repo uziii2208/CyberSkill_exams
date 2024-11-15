@@ -20,10 +20,21 @@ For example, if a PDF file contains the words "apple," "banana," and "apple" (re
 ![image](https://github.com/user-attachments/assets/f49009b4-90ed-4a97-ae58-1b34dd79c03e)
 
 ## Thông tin 
- - GitHub cá nhân : [Follow link](https://github.com/cyberskill-world)
- - Organization : [Follow link](https://github.com/uziii2208)
+ - Organization : [Follow link](https://github.com/cyberskill-world)
+ - GitHub cá nhân : [Follow link](https://github.com/uziii2208)
 
 ## Về vấn đề khác...
 
-### Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!
+<div align="center">
+<h3 align="center">Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!!</h3>
+<div>
 
+<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
+</div>
+</div>
+<div align="center">
+<h3 align="center">Happy Learning / Working !!!</h3>
+<div>
+<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
+</div>
+</div>
