@@ -1,0 +1,48 @@
+name: Deploy Docker Compose on EC2
+
+on:
+  push:
+    branches:
+      - main  # Chạy khi có thay đổi trên nhánh chính
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Bước 1: Lấy mã nguồn từ GitHub repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Bước 2: Cài đặt Docker
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    # Bước 3: Cài đặt Docker Compose
+    - name: Install Docker Compose
+      run: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+
+    # Bước 4: Đăng nhập vào Docker Hub
+    - name: Log in to Docker Hub
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+    # Bước 5: Build Docker image
+    - name: Build Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/go-app:latest .
+
+    # Bước 6: Push Docker image lên Docker Hub
+    - name: Push Docker image
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/go-app:latest
+
+    # Bước 7: Deploy Docker Compose (kết nối đến máy EC2 hoặc máy cá nhân)
+    - name: Deploy to EC2 with Docker Compose
+      run: |
+        ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} "cd ~/rest-api && docker-compose up -d"
+      env:
+        EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        EC2_PUBLIC_IP: ${{ secrets.EC2_PUBLIC_IP }}

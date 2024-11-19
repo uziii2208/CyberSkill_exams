@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main  # Trigger workflow khi có thay đổi trên nhánh main(check ok)
+      - main  # Trigger workflow khi có thay đổi trên nhánh main (check ok)
 
 jobs:
   deploy:
@@ -24,7 +24,7 @@ jobs:
     # Bước 3: Thêm địa chỉ EC2 vào known_hosts
     - name: Add EC2 host to known hosts
       run: |
-        ssh-keyscan -H 3.1.81.58 >> ~/.ssh/known_hosts
+        ssh-keyscan -H 3.1.81.58 >> ~/.ssh/known_hosts  # Địa chỉ IP của EC2
 
     # Bước 4: Sao chép file index.html lên EC2
     - name: Deploy index.html to EC2
@@ -34,10 +34,4 @@ jobs:
     # Bước 5: Khởi động lại Nginx trên EC2
     - name: Restart web server (Nginx)
       run: |
-<<<<<<< HEAD
         ssh -i ~/.ssh/id_rsa ubuntu@3.1.81.58 "sudo systemctl restart nginx"
-=======
-        ssh -i ~/.ssh/id_rsa ubuntu@54.179.152.34 "sudo systemctl restart nginx"  # Khởi động lại Nginx
-
-#toi dang update
->>>>>>> 9b4299a (Update lai toan bo phan Workflow)
