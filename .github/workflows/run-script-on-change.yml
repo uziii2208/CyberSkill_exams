@@ -25,12 +25,17 @@ jobs:
           echo "::set-output name=ZIP_CHANGED::false"
         fi
 
-    # Bước 3: Chạy script nếu file session2.zip đã thay đổi
+    # Bước 3: Chạy script nếu file session2.zip đã thay đổi, sử dụng Secret và Variables
     - name: Run script if session2.zip changed
       if: ${{ steps.check_session2_zip.outputs.ZIP_CHANGED == 'true' }}
       run: |
+        echo "Using Secret Key: $VM_SSH_KEY"
+        echo "Build Environment: $VM_BUILD_ENV"
         python3 Lab_01/script.py  # Chạy script từ thư mục repo
         echo "Script executed successfully."
+      env:
+        VM_SSH_KEY: ${{ secrets.VM_SSH_KEY }}  # Truyền secret key
+        VM_BUILD_ENV: ${{ vars.VM_BUILD_ENV }}  # Truyền variable
 
     # Bước 4: Commit và push kết quả trở lại GitHub nếu có thay đổi
     - name: Commit and push changes
