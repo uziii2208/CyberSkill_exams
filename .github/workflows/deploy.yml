@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main  # Trigger workflow khi có thay đổi trên nhánh main
+      - main  # Trigger workflow khi có thay đổi trên nhánh main(check ok)
 
 jobs:
   deploy:
