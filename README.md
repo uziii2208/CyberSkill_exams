@@ -4,7 +4,7 @@
 </div>
 </div>
 
-<h1 align="center">Xin chào, mình là một DevOps, đồng thời cũng là một Web Scrapper. đây là Repository về quá trình mình Intern tại CyberSkill</h1>
+<h1 align="center">Xin chào, mình là một DevOps, xuất phát điểm là một sinh viên ATTT. đây là Repository về quá trình mình Intern tại CyberSkill</h1>
 
 <h2 align="center">- Về vấn đề sao mình lại theo DevOps...</h2>
 
