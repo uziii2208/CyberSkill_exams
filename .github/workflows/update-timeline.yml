@@ -1,0 +1,85 @@
+name: Update Timeline
+
+on:
+  push:
+    branches:
+      - main  # Kích hoạt workflow khi có commit vào nhánh main (check ok)
+
+jobs:
+  update_timeline:
+    name: Update Timeline
+    runs-on: ubuntu-latest
+
+    steps:
+      # Bước 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Bước 2: Cấu hình Git
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      # Bước 3: Debug trạng thái Git ban đầu
+      - name: Debug Initial Git State
+        run: |
+          git status
+          git log -1 || echo "No commits yet"
+
+      # Bước 4: Lấy chi tiết commit gần nhất
+      - name: Get Commit Details
+        id: commit_info
+        run: |
+          echo "commit_sha=$(git log -1 --pretty=format:'%H')" >> $GITHUB_ENV
+          echo "commit_author=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
+          echo "commit_date=$(git log -1 --pretty=format:'%ad' --date=iso)" >> $GITHUB_ENV
+          echo "commit_message=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
+
+      # Bước 5: Sử dụng ALRX_SECRET_KEY và ALRX_BUILD_ENV
+      - name: Use Secret and Variable
+        run: |
+          echo "Using secret key: [Hidden for security]"
+          echo "Build environment: ${{ vars.ALRX_BUILD_ENV }}"
+        env:
+          ALRX_SECRET_KEY: ${{ secrets.ALRX_SECRET_KEY }}
+
+      # Bước 6: Cập nhật file TIMELINE.md
+      - name: Update TIMELINE.md
+        run: |
+          TIMELINE_FILE="TIMELINE.md"
+
+          # Tạo file mới nếu chưa tồn tại
+          if [ ! -f "$TIMELINE_FILE" ]; then
+            echo "### Commit Timeline" > $TIMELINE_FILE
+            echo "" >> $TIMELINE_FILE
+            echo "| Commit SHA | Author | Date | Message |" >> $TIMELINE_FILE
+            echo "|------------|--------|------|---------|" >> $TIMELINE_FILE
+          fi
+
+          # Thêm thông tin commit mới
+          git log --pretty=format:"| \`%H\` | %an | %ad | %s |" --date=iso >> $TIMELINE_FILE
+
+      # Bước 7: In nội dung TIMELINE.md (debug)
+      - name: Print TIMELINE.md
+        run: |
+          echo "Content of TIMELINE.md:"
+          cat TIMELINE.md
+
+      # Bước 8: Commit và push file TIMELINE.md
+      - name: Commit and Push Changes
+        run: |
+          git add TIMELINE.md
+          git status  # Kiểm tra thay đổi trước khi commit
+          
+          # Commit nếu có thay đổi
+          git diff --cached --exit-code || git commit -m "Update timeline for commit ${{ env.commit_sha }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Bước 9: Debug trạng thái Git sau khi commit
+      - name: Debug Final Git State
+        run: |
+          git status
+          git log -1

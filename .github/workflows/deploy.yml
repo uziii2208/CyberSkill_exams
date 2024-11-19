@@ -34,4 +34,10 @@ jobs:
     # Bước 5: Khởi động lại Nginx trên EC2
     - name: Restart web server (Nginx)
       run: |
+<<<<<<< HEAD
         ssh -i ~/.ssh/id_rsa ubuntu@3.1.81.58 "sudo systemctl restart nginx"
+=======
+        ssh -i ~/.ssh/id_rsa ubuntu@54.179.152.34 "sudo systemctl restart nginx"  # Khởi động lại Nginx
+
+#toi dang update
+>>>>>>> 9b4299a (Update lai toan bo phan Workflow)
