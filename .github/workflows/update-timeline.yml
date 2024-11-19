@@ -36,13 +36,13 @@ jobs:
           echo "commit_date=$(git log -1 --pretty=format:'%ad' --date=iso)" >> $GITHUB_ENV
           echo "commit_message=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
 
-      # Bước 5: Sử dụng ALRX_SECRET_KEY và ALRX_BUILD_ENV
+      # Bước 5: Sử dụng VM_SSH_KEY và VM_BUILD_ENV
       - name: Use Secret and Variable
         run: |
           echo "Using secret key: [Hidden for security]"
-          echo "Build environment: ${{ vars.ALRX_BUILD_ENV }}"
+          echo "Build environment: ${{ vars.VM_BUILD_ENV }}"
         env:
-          ALRX_SECRET_KEY: ${{ secrets.ALRX_SECRET_KEY }}
+          VM_SSH_KEY: ${{ secrets.VM_SSH_KEY }}
 
       # Bước 6: Cập nhật file TIMELINE.md
       - name: Update TIMELINE.md
