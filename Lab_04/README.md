@@ -166,6 +166,8 @@ EC2_PUBLIC_IP: Địa chỉ IP công cộng của EC2.
 - Cài đặt Docker Compose trên Máy EC2 (hoặc máy tính cá nhân)
 Trên máy EC2 (hoặc máy tính cá nhân mà bạn triển khai Docker Compose), bạn cần cài đặt Docker và Docker Compose nếu chưa cài đặt.
 
+photo
+
 Cài đặt Docker:
 ```
 sudo apt-get update
@@ -176,6 +178,8 @@ Cài đặt Docker Compose:
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
+
+
 
 ---
 
