@@ -149,7 +149,7 @@ docker push <your-dockerhub-username>/go-app:latest
 
 - Cấu hình Secrets trong GitHub
 
-photo
+![image](https://github.com/user-attachments/assets/b4e104bc-c27a-4740-93a5-fad667298434)
 
 ```
 Để bảo vệ thông tin nhạy cảm như thông tin đăng nhập Docker Hub và khóa SSH cho máy EC2, bạn cần sử dụng GitHub Secrets:
@@ -166,7 +166,7 @@ EC2_PUBLIC_IP: Địa chỉ IP công cộng của EC2.
 - Cài đặt Docker Compose trên Máy EC2 (hoặc máy tính cá nhân)
 Trên máy EC2 (hoặc máy tính cá nhân mà bạn triển khai Docker Compose), bạn cần cài đặt Docker và Docker Compose nếu chưa cài đặt.
 
-photo
+![image](https://github.com/user-attachments/assets/520c8ea8-c661-4115-b501-47aa829bba79)
 
 Cài đặt Docker:
 ```
