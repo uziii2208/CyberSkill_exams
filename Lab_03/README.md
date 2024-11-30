@@ -32,19 +32,19 @@ Nội dung lab tuần này như sau:
  - Organization : [Follow link](https://github.com/cyberskill-world)
  - GitHub cá nhân : [Follow link](https://github.com/uziii2208)
 
+---
+
 ## Về vấn đề khác...
 
 <div align="center">
 <h3 align="center">Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!!</h3>
 <div>
 
-<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
-</div>
-</div>
+---
+
+ <!-- Support Me --> 
 <div align="center">
-<h3 align="center">Happy Learning / Working !!!</h3>
-<div>
-<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
+    <img src="https://github.com/user-attachments/assets/f6a6e4e5-50e6-41d1-81b8-986edaa1a30e" alt="GIF Image">
 </div>
-</div>
+
 

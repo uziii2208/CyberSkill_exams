@@ -19,7 +19,8 @@
 - [Lab01](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_01)
 - [Lab02](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_02)
 - [Lab03](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_03)
-- [Lab04](Coming Soon)
+- [Lab04](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_04)
+- [Lab05](https://github.com/uziii2208/CyberSkill_exams/tree/main/Lab_05)
 
 ## Thông tin 
  - Organization : [Follow link](https://github.com/cyberskill-world)

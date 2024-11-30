@@ -3,7 +3,7 @@
 ## Yêu cầu thực hiện 
 ```
 Lab tuần này:
-- 1. viết một rest api đơn giản bằng golang hỗ trợ 2 path:
+- 1. Viết một rest api đơn giản bằng golang hỗ trợ 2 path:
    + /date GET trả về thời gian hiện tại của server theo định dạng epoch
    + /infor GET trả về tên của chính bạn
 - 2. Viết dockerfile để build app trên thành docker image sử dụng chức năng multi-stage build
@@ -12,7 +12,7 @@ Lab tuần này:
 - 5. Dùng github action để triển khai dockcompose trên một máy tính ( sử dụng cloud service hoặc máy tính cá nhân)
 ```
 ## Report đề bài
-### 1. viết một REST API đơn giản bằng Golang
+### 1. Viết một REST API đơn giản bằng Golang
 - Đầu tiên tôi viết mã Golang và Kiểm tra mã nguồn
 
 ![image](https://github.com/user-attachments/assets/6a135f10-5afe-4003-a546-a309521b16cc)
@@ -187,18 +187,18 @@ sudo chmod +x /usr/local/bin/docker-compose
  - Organization : [Follow link](https://github.com/cyberskill-world)
  - GitHub cá nhân : [Follow link](https://github.com/uziii2208)
 
+---
+
 ## Về vấn đề khác...
 
 <div align="center">
 <h3 align="center">Nếu có thắc mắc gì về report của mình thì hãy ib lại cho mình nếu có sai sót gì ở đâu đó nhé. Cám ơn rất nhiều !!!!</h3>
 <div>
 
-<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
-</div>
-</div>
+---
+
+ <!-- Support Me --> 
 <div align="center">
-<h3 align="center">Happy Learning / Working !!!</h3>
-<div>
-<img src="https://github.com/fnky/fnky/raw/fnky/img/smile.gif" alt="Smiley" align="center">
+    <img src="https://github.com/user-attachments/assets/f6a6e4e5-50e6-41d1-81b8-986edaa1a30e" alt="GIF Image">
 </div>
-</div>
+
