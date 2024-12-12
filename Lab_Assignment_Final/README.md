@@ -33,7 +33,7 @@ Write a Python or Bash script to:
 
 ![image](photos/lab_1/google_applications_password.png)
 
-- Về các library cần dùng. Ở đây script mình viết bằng Python
+- Về các library cần dùng. Ở đây script mình viết bằng Python. File .env của mình sẽ không push lên Git vì vài vấn đề bảo mật nhé.
 
 ![image](photos/lab_1/library.png)
 
@@ -57,7 +57,21 @@ Write a Python or Bash script to:
 
 ![image](photos/lab_1/monitor_cpu_memory.png)
 
-- 
+- Về hàm thực thi việc nén file log hàng ngày
+
+![image](photos/lab_1/compress_logs.png)
+
+- Về hàm phân tích log truy cập
+
+![image](photos/lab_1/analyze_access_logs.png)
+
+- Về hàm "worker" theo dõi tài nguyên và chu kì một cách liên tục
+
+![image](photos/lab_1/monitor_worker.png)
+
+- Sau cùng là về hàm main của script
+
+![image](photos/lab_1/main.png)
 
 ```
 2. Lab 2 (15%)
