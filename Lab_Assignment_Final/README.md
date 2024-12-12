@@ -4,7 +4,12 @@
 
 ---
 
+Part I: Theory (40%)
+
 ---
+
+Part II: Lab (60%)
+
 
 ```
 1. Lab 1 (15%)
@@ -20,10 +25,39 @@ Write a Python or Bash script to:
 
 ![image](photos/lab_1/theme.png)
 
+- Vì đây là một bài lab nên ta sẽ script cho việc monitoring theo yêu cầu 1 cách basic và trực quan nhất trên local. Việc tối ưu monitoring cho các tác vụ & tài nguyên trên server ta có thể sử dụng các loại IPS/IDS (Suricata), SIEM như Splunk, AlienVaults sẽ ổn định hơn trên thực tế.
+
+![image](photos/lab_1/splunk.png)
+
 - Trước khi để thực hiện script thì bạn phải đảm bảo rằng tài khoản mail server(ở đây mình dùng Google) đã có mật khẩu ứng dụng chưa? Nếu chưa thì hãy tạo Mật khẩu ứng dụng ở đây : https://myaccount.google.com/apppasswords
 
+![image](photos/lab_1/google_applications_password.png)
+
+- Về các library cần dùng. Ở đây script mình viết bằng Python
 
 ![image](photos/lab_1/library.png)
+
+- Về các config cần thiết :
+
+   - Tải biến môi trường từ file .env
+
+   -	Các thư mục và file log đầu ra
+
+   -	Ngưỡng tỉ lệ lỗi để gửi thông báo qua email
+
+   -	Cấu hình ghi log
+
+![image](photos/lab_1/config.png)
+
+- Về hàm gửi thông báo qua email
+
+![image](photos/lab_1/send_email_notification.png)
+
+- Về hàm thực thi việc theo dõi CPU & RAM
+
+![image](photos/lab_1/monitor_cpu_memory.png)
+
+- 
 
 ```
 2. Lab 2 (15%)
@@ -52,4 +86,4 @@ Use Terraform to:
 •	Provide a README.md explaining how to use your Terraform configuration to provision the infrastructure.
 ```
 
-
+---
