@@ -1,0 +1,12 @@
+2024-12-12 17:54:44,215 - INFO - Logged CPU and memory usage: CPU: 19.6% | Memory: 86.0%
+2024-12-12 17:55:45,226 - INFO - Logged CPU and memory usage: CPU: 11.5% | Memory: 86.9%
+2024-12-12 17:56:46,237 - INFO - Logged CPU and memory usage: CPU: 24.7% | Memory: 86.1%
+2024-12-12 17:57:47,245 - INFO - Logged CPU and memory usage: CPU: 37.3% | Memory: 85.8%
+2024-12-12 17:58:48,255 - INFO - Logged CPU and memory usage: CPU: 25.6% | Memory: 82.1%
+2024-12-12 17:59:41,089 - INFO - Logs compressed successfully.
+2024-12-12 17:59:41,102 - INFO - Log analysis complete. Insights: {'top_ips': [('127.0.0.1', 1), ('192.168.1.1', 1)], 'top_endpoints': [('/index.html', 1), ('/login', 1)], 'error_rate': 0.5}
+2024-12-12 17:59:45,341 - INFO - Email sent: High Error Rate Alert
+2024-12-12 17:59:49,265 - INFO - Logged CPU and memory usage: CPU: 8.1% | Memory: 82.3%
+2024-12-12 18:00:50,275 - INFO - Logged CPU and memory usage: CPU: 13.6% | Memory: 88.2%
+2024-12-12 18:01:51,285 - INFO - Logged CPU and memory usage: CPU: 6.0% | Memory: 84.4%
+2024-12-12 18:02:36,249 - INFO - Script terminated by user.
