@@ -18,12 +18,12 @@ Write a Python or Bash script to:
 •	Include proper error handling, logging, and parameterization in your script.
 ```
 
-![image](photos/theme.png)
+![image](photos/lab_1/theme.png)
 
 - Trước khi để thực hiện script thì bạn phải đảm bảo rằng tài khoản mail server(ở đây mình dùng Google) đã có mật khẩu ứng dụng chưa? Nếu chưa thì hãy tạo Mật khẩu ứng dụng ở đây : https://myaccount.google.com/apppasswords
 
 
-![image](photos/library.png)
+![image](photos/lab_1/library.png)
 
 ```
 2. Lab 2 (15%)
@@ -51,3 +51,5 @@ Use Terraform to:
 •	Create at least one container and expose it via a network port.
 •	Provide a README.md explaining how to use your Terraform configuration to provision the infrastructure.
 ```
+
+
