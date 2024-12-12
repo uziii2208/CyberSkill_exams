@@ -41,20 +41,20 @@ logging.basicConfig(
 
 def send_email_notification(subject, body):
     """
-    Sends an email notification with user-provided credentials.
+    Gửi thông báo qua email với thông tin do người dùng cung cấp.
     """
     try:
         if not all([SMTP_SERVER, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SENDER_EMAIL, RECEIVER_EMAIL]):
             logging.error("SMTP configuration is incomplete. Email will not be sent.")
             return
 
-        # Create the email message
+        # Tạo nội dung email
         msg = MIMEText(body)
         msg["Subject"] = subject
         msg["From"] = SENDER_EMAIL
         msg["To"] = RECEIVER_EMAIL
 
-        # Connect to the SMTP server and send the email
+        # Kết nối tới server SMTP và gửi email
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(SMTP_USER, SMTP_PASSWORD)
@@ -68,8 +68,11 @@ def send_email_notification(subject, body):
         print(f"Failed to send email: {e}")
         raise
 
-# Monitor CPU and memory usage
+# Theo dõi việc sử dụng CPU và bộ nhớ RAM
 def monitor_cpu_memory():
+    """
+    Theo dõi và ghi lại mức sử dụng CPU và RAM vào file log.
+    """
     try:
         with open(CPU_MEM_LOG_FILE, "a") as f:
             cpu_usage = psutil.cpu_percent(interval=1)
@@ -80,18 +83,24 @@ def monitor_cpu_memory():
     except Exception as e:
         logging.error(f"Error monitoring CPU and memory usage: {e}")
 
-# Compress log file daily
+# Nén file log hằng ngày
 def compress_logs():
+    """
+    Nén file log hằng ngày để tiết kiệm dung lượng và lưu trữ lâu dài.
+    """
     try:
         with open(CPU_MEM_LOG_FILE, "rb") as f_in, gzip.open(COMPRESSED_LOG_FILE, "wb") as f_out:
             shutil.copyfileobj(f_in, f_out)
-        open(CPU_MEM_LOG_FILE, "w").close()  # Clear original log file
+        open(CPU_MEM_LOG_FILE, "w").close()  # # Xóa nội dung file log gốc
         logging.info("Logs compressed successfully.")
     except Exception as e:
         logging.error(f"Error compressing logs: {e}")
 
-# Analyze access logs from file
+# Phân tích log truy cập từ file
 def analyze_access_logs():
+    """
+    Phân tích log truy cập để thu thập thông tin quan trọng và gửi cảnh báo nếu cần.
+    """
     try:
         if not os.path.exists(ACCESS_LOG_FILE):
             logging.warning("Access log file not found.")
@@ -123,7 +132,7 @@ def analyze_access_logs():
 
         error_rate = error_count / total_requests if total_requests > 0 else 0
 
-        # Generate insights
+        # Tạo báo cáo phân tích
         insights = {
             "top_ips": ip_counter.most_common(5),
             "top_endpoints": endpoint_counter.most_common(5),
@@ -137,7 +146,7 @@ def analyze_access_logs():
 
         logging.info(f"Log analysis complete. Insights: {insights}")
 
-        # Send email if error rate exceeds threshold
+        # Gửi email nếu tỉ lệ lỗi vượt ngưỡng cho phép
         if error_rate > ERROR_RATE_THRESHOLD:
             subject = "High Error Rate Alert"
             body = (
@@ -149,29 +158,29 @@ def analyze_access_logs():
     except Exception as e:
         logging.error(f"Error analyzing access logs: {e}")
 
-# Worker function to repeatedly monitor CPU and memory
+# Hàm worker để theo dõi tài nguyên hệ thống liên tục
 def monitor_worker():
     github_info = "GitHub : https://github.com/uziii2208"
     print(github_info)
     while True:
-        for i in range(4):  # Cycle through "..."
+        for i in range(4):  # Chu kỳ hiển thị "..."
             dots = "." * i
             print(f"\rScript is running{dots}   \r", end="")
             time.sleep(0.5)
         monitor_cpu_memory()
-        time.sleep(60 - 2)  # Adjust for inner sleep timing
+        time.sleep(60 - 2)  # Điều chỉnh sleep timing cho phù hợp
 
 if __name__ == "__main__":
     try:
         from multiprocessing import Process
 
-        # Start CPU and memory monitoring in a separate process
+        # Bắt đầu theo dõi CPU và RAM trong một tiến trình riêng
         monitor_process = Process(target=monitor_worker)
         monitor_process.start()
 
-        # Run compression and analysis every 24 hours
+        # Thực hiện nén và phân tích log mỗi 24h
         while True:
-            time.sleep(86400)  # Wait 24 hours = 86400 seconds
+            time.sleep(86400)  # Chờ 24h = 86400s
             compress_logs()
             analyze_access_logs()
 
