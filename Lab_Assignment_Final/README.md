@@ -5,13 +5,8 @@
 
 ---
 
-Part I: Theory (40%)
+### Part I: Theory (40%)
 ```
-Instructions:
-Answer all the questions in detail.
-Cite examples wherever applicable.
-Submit your answers in a well-formatted document (PDF or Word).
-Question:
 1. Explain the difference between interpreters and compilers. Provide examples of
 programming languages that use interpreters and compilers. Discuss scenarios
 where one is preferred over the other.
@@ -39,9 +34,7 @@ for observability and discuss how they integrate into the DevOps lifecycle
 
 ---
 
-Part II: Lab (60%)
-
-
+### Part II: Lab (60%)
 ```
 1. Lab 1 (15%)
 Write a Python or Bash script to:
@@ -54,51 +47,47 @@ Write a Python or Bash script to:
 •	Include proper error handling, logging, and parameterization in your script.
 ```
 
-- Vì đây là một bài lab nên ta sẽ script cho việc monitoring theo yêu cầu 1 cách basic và trực quan nhất trên local. Việc tối ưu monitoring cho các tác vụ & tài nguyên trên server ta có thể sử dụng các loại IPS/IDS (Suricata), SIEM như Splunk, AlienVaults sẽ ổn định hơn trên thực tế.
+- Since this is a lab, we will script the monitoring tasks in the most basic and intuitive way on the local system. For optimizing monitoring for tasks and resources on the server, using IPS/IDS tools like Suricata or SIEM tools like Splunk and AlienVaults will be more stable in practice.
 
 ![image](photos/lab_1/splunk.png)
 
-- Trước khi để thực hiện script thì bạn phải đảm bảo rằng tài khoản mail server(ở đây mình dùng Google) đã có mật khẩu ứng dụng chưa? Nếu chưa thì hãy tạo Mật khẩu ứng dụng ở đây : https://myaccount.google.com/apppasswords
+- Before running the script, make sure that your mail server account (in this case, Google) has an app password ready. If not, create an app password here: https://myaccount.google.com/apppasswords.
 
 ![image](photos/lab_1/google_applications_password.png)
 
-- Về các library cần dùng. Ở đây script mình viết bằng Python. File .env của mình sẽ không push lên Git vì vài vấn đề bảo mật nhé.
+- Regarding the necessary libraries: I will be writing this script in Python. My .env file will not be pushed to Git due to some security concerns.
 
 ![image](photos/lab_1/library.png)
 
-- Về các config cần thiết :
-
-   - Tải biến môi trường từ file .env
-
-   -	Các thư mục và file log đầu ra
-
-   -	Ngưỡng tỉ lệ lỗi để gửi thông báo qua email
-
-   -	Cấu hình ghi log
+- Regarding the necessary configurations:
+   - Load environment variables from the .env file.
+   - Define directories and output log files.
+   - Set an error threshold ratio to trigger email notifications.
+   - Configure logging.
 
 ![image](photos/lab_1/config.png)
 
-- Về hàm gửi thông báo qua email
+- About the email notification function :
 
 ![image](photos/lab_1/send_email_notification.png)
 
-- Về hàm thực thi việc theo dõi CPU & RAM
+- About the function monitoring CPU & RAM:
 
 ![image](photos/lab_1/monitor_cpu_memory.png)
 
-- Về hàm thực thi việc nén file log hàng ngày
+- About the function compressing log files daily:
 
 ![image](photos/lab_1/compress_logs.png)
 
-- Về hàm phân tích log truy cập
+- About the function analyzing access logs:
 
 ![image](photos/lab_1/analyze_access_logs.png)
 
-- Về hàm "worker" theo dõi tài nguyên và chu kì một cách liên tục
+- About the ```worker``` function monitoring resources continuously and cyclically:
 
 ![image](photos/lab_1/monitor_worker.png)
 
-- Sau cùng là về hàm main của script
+- Finally, regarding the main function of the script:
 
 ![image](photos/lab_1/main.png)
 
@@ -106,14 +95,13 @@ Write a Python or Bash script to:
 
 ![image](photos/lab_1/theme.png)
 
-- Đầu tiên, dữ liệu của access.log là mình sẽ trích từ server về để chạy field test local
-- Tiếp theo khi chạy script ```helloword.py```, bạn sẽ thấy các log đã bắt đầu chạy dần như sau :
-   1. Chạy monitor cpu & memory trước - đồng thời ```script.log``` cũng sẽ hiển thị timeline mỗi lần measure cho cpu & memory.
-   2. Sau 5 phút nếu trước đó có lỗi sẽ gửi về email ngay lập tức (cách 5 phút 1 lần).
+- First, the data from access.log will be extracted from the server to run a local field test.
+- Next, when running the script ```helloworld.py```, you will see the logs starting to run gradually as follows:
+   1. First, monitor CPU & memory — at the same time, ```script.log``` will display the timeline for each CPU & memory measurement.
+   2. After 5 minutes, if there were errors previously, notifications will be sent to your email immediately (once every 5 minutes).
+   3. After 24 hours, detailed logs in ```script.log``` will be packaged into ```daily.log.gz```.
 
 ![image](photos/lab_1/mail_report.png)
-
-   3. Sau 24h, các log chi tiết trong ```script.log``` sẽ được package lại thành ```daily.log.gz```.
 
 ```
 2. Lab 2 (15%)
