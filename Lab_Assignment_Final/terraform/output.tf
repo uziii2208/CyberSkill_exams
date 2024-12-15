@@ -1,11 +1,5 @@
-output "container_name" {
-  value = docker_container.app_container.name
-}
-
-output "container_ports" {
-  value = docker_container.app_container.ports
-}
-
-output "container_status" {
-  value = docker_container.app_container.status
+# Outputs
+output "public_ip" {
+  description = "Public IP of the EC2 instance"
+  value       = aws_instance.app_instance.public_ip
 }

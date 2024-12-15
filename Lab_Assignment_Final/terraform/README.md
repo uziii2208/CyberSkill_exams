@@ -1,25 +1,23 @@
-![image](https://github.com/user-attachments/assets/c323ce84-8d14-4ba6-b14a-4c4f1084af34)
-
 # Terraform Configuration for Dockerized Node.js Application
 
 ## Objective
-This Terraform configuration sets up infrastructure for deploying a Dockerized Node.js application. It includes defining a container, exposing it on a network port, and providing an easily reproducible environment.
+This Terraform configuration provisions infrastructure on AWS to deploy a Dockerized Node.js application. It includes creating an EC2 instance, installing Docker, running the application, and enabling observability.
 
 ## Features
-- Defines a Docker container for the Node.js application.
-- Exposes the application on a specified port.
-- Dynamically configurable using Terraform variables.
-- Easy to destroy and recreate the infrastructure.
+- Deploys the Node.js application as a Docker container.
+- Provisions an AWS EC2 instance for hosting the application.
+- Configures security groups to allow necessary traffic (SSH and app port).
+- Includes Terraform variables for easy customization.
+- Logs and metrics are available for observability.
 
 ---
 
 ## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-1. **Docker**: [Docker Installation Guide](https://docs.docker.com/get-docker/)
+Before starting, ensure you have the following installed and configured:
+1. **AWS CLI**: [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 2. **Terraform**: [Terraform Installation Guide](https://www.terraform.io/downloads)
-3. **Node.js** (optional, if you want to test locally): [Node.js Installation Guide](https://nodejs.org/)
+3. **Docker**: Installed on the AWS EC2 instance (automatically configured by the `main.tf`).
+4. **SSH Key**: An SSH key pair for accessing the EC2 instance. Update the path in the `main.tf` accordingly.
 
 ---
 
@@ -45,16 +43,20 @@ Lab_Assignment_Final/
 
 ---
 
-## Terraform Files
+## Terraform Configuration Files
 
 ### `main.tf`
-This file contains the core Terraform configuration, including provider setup, Docker image, and container resource definitions.
+This file contains the core Terraform configuration, which:
+- Defines the AWS provider and region.
+- Creates an EC2 instance for the application.
+- Installs Docker and runs the Node.js application inside a container.
+- Configures an AWS security group for SSH and app traffic.
 
 ### `variables.tf`
-Defines input variables to make the configuration dynamic and customizable.
+Contains configurable variables for the infrastructure. Adjust these values to match your requirements.
 
 ### `outputs.tf`
-Outputs information about the infrastructure after provisioning, such as container name and port mappings.
+Defines the output values, such as the public IP of the EC2 instance, for easy access post-deployment.
 
 ---
 
@@ -80,17 +82,18 @@ terraform validate
 ```
 
 ### Step 4: Apply the Configuration
-Apply the configuration to create the Docker container:
+Provision the infrastructure by applying the configuration:
 ```bash
 terraform apply
 ```
 - When prompted, type `yes` to confirm.
+- After completion, Terraform will display the public IP of the EC2 instance.
 
 ### Step 5: Access the Application
-Once the infrastructure is provisioned, access the application using:
+Access the application via the public IP of the EC2 instance on port `8000`:
 ```bash
-curl http://localhost:8000/
-curl http://localhost:8000/getInfo
+curl http://<EC2_PUBLIC_IP>:8000/
+curl http://<EC2_PUBLIC_IP>:8000/getInfo
 ```
 - **Endpoints**:
   - `/`: Returns a description of the lab.
@@ -100,18 +103,18 @@ curl http://localhost:8000/getInfo
 
 ## Configurable Variables
 
-The configuration includes variables defined in `variables.tf` that can be adjusted as needed:
+The `variables.tf` file allows you to customize the setup:
 
-| Variable            | Description                               | Default         |
-|---------------------|-------------------------------------------|-----------------|
-| `app_image_name`    | Docker image name                        | `node:20.17.0`  |
-| `app_name`          | Name of the Docker container             | `my_node_app`   |
-| `app_host_port`     | Port on the host to expose the container | `8000`          |
-| `app_container_port`| Port inside the container                | `8000`          |
+| Variable              | Description                               | Default Value  |
+|-----------------------|-------------------------------------------|----------------|
+| `aws_region`          | AWS region for the infrastructure         | `us-east-1`    |
+| `instance_type`       | EC2 instance type                         | `t2.micro`     |
+| `app_port`            | Port for the application                  | `8000`         |
+| `ssh_key_path`        | Path to your SSH public key               | `~/.ssh/id_rsa.pub` |
 
-To override these values, you can create a `terraform.tfvars` file or pass them directly during the `apply` command:
+To override these values, create a `terraform.tfvars` file or pass variables directly when applying:
 ```bash
-terraform apply -var="app_host_port=8080"
+terraform apply -var="app_port=8080"
 ```
 
 ---
@@ -120,17 +123,27 @@ terraform apply -var="app_host_port=8080"
 
 After running `terraform apply`, the following outputs will be displayed:
 
-| Output              | Description                               |
-|---------------------|-------------------------------------------|
-| `container_name`    | Name of the Docker container             |
-| `container_ports`   | Port mappings of the container           |
-| `container_status`  | Status of the container                  |
+| Output                | Description                               |
+|-----------------------|-------------------------------------------|
+| `instance_public_ip`  | Public IP of the EC2 instance             |
+
+Use the `instance_public_ip` to access the application.
+
+---
+
+## Logs and Observability
+
+Logs generated by the application are stored in the `scripts/logs` folder:
+- `access.log`: HTTP request logs.
+- `analyzed_log.log`: Processed logs for analysis.
+- `cpu_mem_usage.log`: Resource usage logs.
+- `script.log`: General script execution logs.
 
 ---
 
 ## Cleanup
 
-To destroy the infrastructure and clean up resources:
+To destroy the infrastructure and clean up all resources:
 ```bash
 terraform destroy
 ```
@@ -138,26 +151,32 @@ terraform destroy
 
 ---
 
-## Notes
-- Ensure Docker is running before executing any Terraform commands.
-- You can modify the application files in the `scripts` folder and redeploy by rerunning `terraform apply`.
+## Troubleshooting
+
+### Docker Issues
+- Ensure the Docker daemon is running on the EC2 instance.
+- Check the Docker installation script in the `user_data` section of `main.tf`.
+
+### SSH Access
+- If SSH access is not working, verify the key pair and security group configurations.
+
+### Port Conflicts
+- Ensure the application port (`8000` by default) is not already in use.
+- Update the `app_port` variable if needed.
 
 ---
 
-## Troubleshooting
+## Notes
 
-1. **Docker Daemon Issues:**
-   - Ensure the Docker daemon is running on your system.
-   - Check the Docker host configuration in `main.tf`.
+- This setup is designed for educational purposes. Adjust security settings (e.g., restrict CIDR blocks) for production deployments.
+- The Terraform configuration automates most tasks, but you can modify it further to suit your needs.
 
-2. **Port Conflicts:**
-   - Verify that the host port (`8000` by default) is not already in use.
-   - Modify the `app_host_port` variable if needed.
+---
 
-3. **Logs:**
-   - Application logs are stored in the `scripts/logs` folder. Check these for debugging.
+## Conclusion
+
+This lab demonstrates using Terraform to provision AWS infrastructure for a Dockerized Node.js application. It automates the entire process, making it efficient and reproducible.
 
 ---
 
 ## This lab is a complete Terraform configuration for Dockerized Node.js Application
-

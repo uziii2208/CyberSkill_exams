@@ -1,46 +1,70 @@
-provider "docker" {
-  host = "npipe:////./pipe/docker_engine" # For Windows; adjust for Linux/Mac
+# Provider Configuration
+provider "aws" {
+  region = "us-east-1" # Adjust this to your preferred AWS region
 }
 
-variable "app_image_name" {
-  default = "node:20.17.0"
+# Key Pair
+resource "aws_key_pair" "deployer_key" {
+  key_name   = "deployer_key"
+  public_key = file("~/.ssh/id_rsa.pub") # Adjust this to your public key path
 }
 
-variable "app_name" {
-  default = "my_node_app"
-}
+# Security Group
+resource "aws_security_group" "app_sg" {
+  name_prefix = "app-sg-"
 
-variable "app_host_port" {
-  default = 8000
-}
-
-variable "app_container_port" {
-  default = 8000
-}
-
-resource "docker_image" "app_image" {
-  name = var.app_image_name
-}
-
-resource "docker_container" "app_container" {
-  image = docker_image.app_image.latest
-  name  = var.app_name
-
-  ports {
-    internal = var.app_container_port
-    external = var.app_host_port
+  ingress {
+    description = "Allow SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Restrict this in production
   }
 
-  volumes {
-    host_path      = "${path.root}/../scripts"
-    container_path = "/app"
+  ingress {
+    description = "Allow app traffic"
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Restrict this in production
   }
 
-  command      = ["npm", "start"]
-  working_dir  = "/app"
-  environment  = {
-    NODE_ENV = "production"
+  egress {
+    description = "Allow all outbound"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
+}
 
-  depends_on = [docker_image.app_image]
+# EC2 Instance
+resource "aws_instance" "app_instance" {
+  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI
+  instance_type = "t2.micro"
+  key_name      = aws_key_pair.deployer_key.key_name
+
+  security_groups = [aws_security_group.app_sg.name]
+
+  user_data = <<-EOF
+              #!/bin/bash
+              yum update -y
+              amazon-linux-extras install docker -y
+              service docker start
+              usermod -a -G docker ec2-user
+              yum install -y git
+              git clone https://github.com/arifsetiawan/node-test-sample.git
+              cd node-test-sample
+              docker build -t node-app .
+              docker run -d -p 8000:8000 --name node-app node-app
+            EOF
+
+  tags = {
+    Name = "NodeAppInstance"
+  }
+}
+
+# Outputs
+output "instance_public_ip" {
+  value = aws_instance.app_instance.public_ip
 }
