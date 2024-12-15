@@ -6,7 +6,7 @@
 ---
 
 ### Part I: Theory (40%)
-```
+```bash
 1. Explain the difference between interpreters and compilers. Provide examples of
 programming languages that use interpreters and compilers. Discuss scenarios
 where one is preferred over the other.
@@ -35,8 +35,8 @@ for observability and discuss how they integrate into the DevOps lifecycle
 ---
 
 ### Part II: Lab (60%)
-```
-1. Lab 1 (15%)
+```bash
+1. Lab 1 
 Write a Python or Bash script to:
 •	Monitor CPU and memory usage of a system.
 •	Log the information to a file every minute.
@@ -49,8 +49,8 @@ Write a Python or Bash script to:
 
 [System Monitoring and Log Analysis Script](/Lab_Assignment_Final/lab_01_README/README.md)
 
-```
-2. Lab 2 (15%)
+```bash
+2. Lab 2 
 Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions: https://github.com/arifsetiawan/node-test-sample. The pipeline should include:
 •	Code linting and unit tests.
 •	Building a Docker image of the application.
@@ -60,8 +60,8 @@ Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions: ht
 
 [Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions](https://github.com/uziii2208/Assignment_Docker)
 
-```
-3. Lab 3 (15%)
+```bash
+3. Lab 3 
 Deploy an application using Docker and Docker Compose.
 Use Docker Compose to set up the application and integrate Grafana for observability (https://github.com/arifsetiawan/node-test-sample):
 •	Use Grafana Loki for logging.
@@ -72,8 +72,8 @@ Use Docker Compose to set up the application and integrate Grafana for observabi
 
 [Deploy an application using Docker and Docker Compose](https://github.com/uziii2208/Docker_Assignment_2)
 
-```
-4. Lab 4 (15%)
+```bash
+4. Lab 4 
 Use Terraform to:
 •	Define infrastructure for a Dockerized application.
 •	Create at least one container and expose it via a network port.
