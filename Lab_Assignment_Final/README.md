@@ -1,4 +1,5 @@
 ![image](https://github.com/user-attachments/assets/c323ce84-8d14-4ba6-b14a-4c4f1084af34)
+
 # Lab Final Assignment | CyberSkill
 ## Yêu cầu thực hiện 
 
@@ -144,5 +145,7 @@ Use Terraform to:
 •	Create at least one container and expose it via a network port.
 •	Provide a README.md explaining how to use your Terraform configuration to provision the infrastructure.
 ```
+
+[Watch here](/Lab_Assignment_Final/terraform/README.md)
 
 ---
