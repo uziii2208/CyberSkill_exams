@@ -23,8 +23,6 @@ Write a Python or Bash script to:
 •	Include proper error handling, logging, and parameterization in your script.
 ```
 
-![image](photos/lab_1/theme.png)
-
 - Vì đây là một bài lab nên ta sẽ script cho việc monitoring theo yêu cầu 1 cách basic và trực quan nhất trên local. Việc tối ưu monitoring cho các tác vụ & tài nguyên trên server ta có thể sử dụng các loại IPS/IDS (Suricata), SIEM như Splunk, AlienVaults sẽ ổn định hơn trên thực tế.
 
 ![image](photos/lab_1/splunk.png)
@@ -73,6 +71,19 @@ Write a Python or Bash script to:
 
 ![image](photos/lab_1/main.png)
 
+### Field test :
+
+![image](photos/lab_1/theme.png)
+
+- Đầu tiên, dữ liệu của access.log là mình sẽ trích từ server về để chạy field test local
+- Tiếp theo khi chạy script ```helloword.py```, bạn sẽ thấy các log đã bắt đầu chạy dần như sau :
+   1. Chạy monitor cpu & memory trước - đồng thời ```script.log``` cũng sẽ hiển thị timeline mỗi lần measure cho cpu & memory.
+   2. Sau 5 phút nếu trước đó có lỗi sẽ gửi về email ngay lập tức (cách 5 phút 1 lần).
+
+![image](photos/lab_1/mail_report.png)
+
+   3. Sau 24h, các log chi tiết trong ```script.log``` sẽ được package lại thành ```daily.log.gz```.
+
 ```
 2. Lab 2 (15%)
 Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions: https://github.com/arifsetiawan/node-test-sample. The pipeline should include:
@@ -82,7 +93,7 @@ Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions: ht
 •	Document the steps to set up and run the pipeline.
 ```
 
-[Access to check here]https://github.com/uziii2208/Docker_Assignment
+[Watch here](https://github.com/uziii2208/Docker_Assignment)
 
 ```
 3. Lab 3 (15%)
@@ -93,6 +104,8 @@ Use Docker Compose to set up the application and integrate Grafana for observabi
 •	Create dashboards to monitor logs and metrics.
 •	Document how to access and use the Grafana dashboards.
 ```
+
+[Watch here](https://github.com/uziii2208/Docker_Assignment_2)
 
 ```
 4. Lab 4 (15%)
