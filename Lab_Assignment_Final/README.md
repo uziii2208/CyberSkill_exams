@@ -83,3 +83,9 @@ Use Terraform to:
 [Terraform Configuration for Dockerized Node.js Application](/Lab_Assignment_Final/terraform/README.md)
 
 ---
+
+ <!-- Support Me --> 
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/f6a6e4e5-50e6-41d1-81b8-986edaa1a30e" alt="GIF Image">
+</div>
+
