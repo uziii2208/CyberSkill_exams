@@ -79,6 +79,8 @@ def send_email_notification(subject, message):
     # Sends an email notification with the given subject and message
 ```
 
+![image](photos/lab_1/send_email_notification.png)
+
 ### 3. **CPU & Memory Monitoring**
 Logs CPU and memory usage every minute.
 
@@ -87,6 +89,8 @@ def monitor_cpu_memory():
     # Captures CPU and memory usage metrics and logs them
 ```
 
+![image](photos/lab_1/monitor_cpu_memory.png)
+
 ### 4. **Log Compression**
 Compresses the log file daily to save space.
 
@@ -94,6 +98,8 @@ Compresses the log file daily to save space.
 def compress_logs():
     # Archives logs older than one day into a .gz file
 ```
+
+![image](photos/lab_1/compress_logs.png)
 
 ### 5. **Access Log Analysis**
 Parses `access.log` for insights such as:
@@ -106,6 +112,8 @@ def analyze_access_logs():
     # Analyzes access logs and generates insights
 ```
 
+![image](photos/lab_1/analyze_access_logs.png)
+
 ### 6. **Monitoring Worker**
 Runs the monitoring tasks cyclically.
 
@@ -114,6 +122,8 @@ def monitor_worker():
     # Continuously monitors system resources and handles notifications
 ```
 
+![image](photos/lab_1/monitor_worker.png)
+
 ### 7. **Main Script**
 Coordinates the execution of all tasks.
 
@@ -121,7 +131,7 @@ Coordinates the execution of all tasks.
 if __name__ == "__main__":
     main()
 ```
-
+![image](photos/lab_1/main.png)
 ---
 
 ## Field Test
