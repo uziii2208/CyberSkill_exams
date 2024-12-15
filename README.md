@@ -4,13 +4,15 @@
 </div>
 </div>
 
-<h1 align="center">Xin chào, mình là một DevOps, xuất phát điểm là một sinh viên ATTT. đây là Repository về quá trình mình Intern tại CyberSkill</h1>
+<h1 align="center">Xin chào, mình là một DevOps, xuất phát điểm là một sinh viên ATTT. đây là Repository về quá trình mình Intern DevOps tại CyberSkill</h1>
 
 <h2 align="center">- Về vấn đề sao mình lại theo DevOps...</h2>
 
 ### Oops...Vấn đề này khá là khó giải thích nhỉ...
 - Thì bản thân mình được một người bạn của mình - một Wev Developer Fullstack tại CyberSkill gợi ý mình đi theo DevOps.
+
 ![image](https://github.com/user-attachments/assets/6971556d-7a0d-4704-adbc-c8b288af343e)
+
 - Và...mình vui vẻ nhận lời xDDD
 
 
