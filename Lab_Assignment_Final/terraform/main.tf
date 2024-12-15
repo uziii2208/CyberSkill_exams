@@ -40,11 +40,11 @@ resource "aws_security_group" "app_sg" {
 
 # EC2 Instance
 resource "aws_instance" "app_instance" {
-  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI
+  ami           = "ami-047126e50991d067b" # Amazon Linux 2 AMI
   instance_type = "t2.micro"
-  key_name      = aws_key_pair.deployer_key.key_name
+  key_name      = corbierevn.pem
 
-  security_groups = [aws_security_group.app_sg.name]
+  security_groups = [corbierevn-wizard-1]
 
   user_data = <<-EOF
               #!/bin/bash
