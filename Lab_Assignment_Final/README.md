@@ -47,61 +47,7 @@ Write a Python or Bash script to:
 •	Include proper error handling, logging, and parameterization in your script.
 ```
 
-- Since this is a lab, we will script the monitoring tasks in the most basic and intuitive way on the local system. For optimizing monitoring for tasks and resources on the server, using IPS/IDS tools like Suricata or SIEM tools like Splunk and AlienVaults will be more stable in practice.
-
-![image](photos/lab_1/splunk.png)
-
-- Before running the script, make sure that your mail server account (in this case, Google) has an app password ready. If not, create an app password here: https://myaccount.google.com/apppasswords.
-
-![image](photos/lab_1/google_applications_password.png)
-
-- Regarding the necessary libraries: I will be writing this script in Python. My .env file will not be pushed to Git due to some security concerns.
-
-![image](photos/lab_1/library.png)
-
-- Regarding the necessary configurations:
-   - Load environment variables from the .env file.
-   - Define directories and output log files.
-   - Set an error threshold ratio to trigger email notifications.
-   - Configure logging.
-
-![image](photos/lab_1/config.png)
-
-- About the email notification function :
-
-![image](photos/lab_1/send_email_notification.png)
-
-- About the function monitoring CPU & RAM:
-
-![image](photos/lab_1/monitor_cpu_memory.png)
-
-- About the function compressing log files daily:
-
-![image](photos/lab_1/compress_logs.png)
-
-- About the function analyzing access logs:
-
-![image](photos/lab_1/analyze_access_logs.png)
-
-- About the ```worker``` function monitoring resources continuously and cyclically:
-
-![image](photos/lab_1/monitor_worker.png)
-
-- Finally, regarding the main function of the script:
-
-![image](photos/lab_1/main.png)
-
-### Field test :
-
-![image](photos/lab_1/theme.png)
-
-- First, the data from access.log will be extracted from the server to run a local field test.
-- Next, when running the script ```helloworld.py```, you will see the logs starting to run gradually as follows:
-   1. First, monitor CPU & memory — at the same time, ```script.log``` will display the timeline for each CPU & memory measurement.
-   2. After 5 minutes, if there were errors previously, notifications will be sent to your email immediately (once every 5 minutes).
-   3. After 24 hours, detailed logs in ```script.log``` will be packaged into ```daily.log.gz```.
-
-![image](photos/lab_1/mail_report.png)
+[System Monitoring and Log Analysis Script](/Lab_Assignment_Final/lab_01_README/README.md)
 
 ```
 2. Lab 2 (15%)
@@ -112,7 +58,7 @@ Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions: ht
 •	Document the steps to set up and run the pipeline.
 ```
 
-[Watch here](https://github.com/uziii2208/Assignment_Docker)
+[Create a CI/CD pipeline to deploy a Node.js application using GitHub Actions](https://github.com/uziii2208/Assignment_Docker)
 
 ```
 3. Lab 3 (15%)
@@ -124,7 +70,7 @@ Use Docker Compose to set up the application and integrate Grafana for observabi
 •	Document how to access and use the Grafana dashboards.
 ```
 
-[Watch here](https://github.com/uziii2208/Docker_Assignment_2)
+[Deploy an application using Docker and Docker Compose](https://github.com/uziii2208/Docker_Assignment_2)
 
 ```
 4. Lab 4 (15%)
@@ -134,6 +80,6 @@ Use Terraform to:
 •	Provide a README.md explaining how to use your Terraform configuration to provision the infrastructure.
 ```
 
-[Watch here](/Lab_Assignment_Final/terraform/README.md)
+[Terraform Configuration for Dockerized Node.js Application](/Lab_Assignment_Final/terraform/README.md)
 
 ---
