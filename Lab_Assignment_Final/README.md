@@ -5,6 +5,36 @@
 ---
 
 Part I: Theory (40%)
+```
+Instructions:
+Answer all the questions in detail.
+Cite examples wherever applicable.
+Submit your answers in a well-formatted document (PDF or Word).
+Question:
+1. Explain the difference between interpreters and compilers. Provide examples of
+programming languages that use interpreters and compilers. Discuss scenarios
+where one is preferred over the other.
+2. Differentiate between Just-in-Time (JIT) compilers and traditional compilers.
+Provide examples of JIT implementations and their use cases.
+3. Define CI/CD and its importance in DevOps. Explain the stages of a CI/CD
+pipeline. List tools commonly used in CI/CD and compare their features. Discuss
+common bottlenecks in CI/CD pipelines and strategies to resolve them.
+4. Define cloud computing and its key characteristics (e.g., scalability, elasticity).
+Compare IaaS, PaaS, and SaaS with examples. Discuss the benefits of using cloud
+computing in DevOps.
+5. Compare Docker containers and virtual machines in terms of architecture,
+performance, and use cases. List the advantages of using Docker over virtual
+machines in a DevOps workflow.
+6. Define IaC and its benefits. Explain the role of Terraform in automating
+infrastructure. Provide an example use case of Terraform in a DevOps project.
+7. Define observability and its importance in a production environment. Explain the
+three pillars of observability: logs, metrics, and traces. List tools commonly used
+for observability and discuss how they integrate into the DevOps lifecycle
+```
+
+![theory1](photos/theory/image1.png)
+
+![theory2](photos/theory/image2.png)
 
 ---
 
