@@ -31,3 +31,6 @@ Below are the fundamental labs that every DevOps should know and must master:
 <div align="center">
     <img src="https://github.com/user-attachments/assets/f6a6e4e5-50e6-41d1-81b8-986edaa1a30e" alt="GIF Image">
 </div>
+
+
+<!-- Security scan triggered at 2025-09-02 05:21:13 -->
